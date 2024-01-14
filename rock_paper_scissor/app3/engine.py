@@ -4,6 +4,7 @@
 from computer_player import PlayerComputer
 from human_player import PlayerHuman
 from game_logic import GameLogic
+from chutiya_computer import ChutiyaComputer
 
 
 
@@ -30,16 +31,20 @@ def create_players(input_game_type:str="HH"):
             print("Initializing Computer player")
             player_2 = PlayerComputer()
             print(f"Computer Player Initialized by the name : {player_2.name}")
+        
+        if input_game_type=="HCC":
+            print("Initializing Computer player")
+            player_2 = ChutiyaComputer()
+            print(f"Chituya Computer Player Initialized by the name : {player_2.name}")
 
         return player_1, player_2
 
 def get_game_logic_inputs():
+    input_game_type = None
+
     while True:
-        input_game_type = input("Input HH for Human-Human, HC for Human-Computer --> ")
-        if input_game_type == "HH":
-            player_1, player_2 = create_players(input_game_type=input_game_type)
-            break
-        elif input_game_type == "HC":
+        if input_game_type not in ("HH","HC","HCC"):
+            input_game_type = input("Input HH for Human-Human, HC for Human-Computer --> ")
             player_1, player_2 = create_players(input_game_type=input_game_type)
             break
         else:
@@ -47,21 +52,17 @@ def get_game_logic_inputs():
     
     # Get max_score
     max_score = int(input("Enter Max Score : "))
-    while max_score<=0:
+
+    while max_score <= 0:
         print("Max Score should be greater than 0")
         max_score = int(input("Re-Enter Max Score : "))
     
     return player_1, player_2, max_score
 
 def main():
-
-    # Get the game_inputs
     player_1, player_2, max_score = get_game_logic_inputs()
-
-    # Initalize the game logic class
     game_logic = GameLogic(player_1=player_1, player_2=player_2)
 
-    # Start the game to play
     game_logic.play_game(max_score=max_score, player_1=player_1, player_2=player_2)
 
     return
