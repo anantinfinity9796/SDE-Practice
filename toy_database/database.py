@@ -13,7 +13,6 @@ class MyDatabase(Idatabase):
         self.key_offset_map  = {}
 
     def read(self, input_key:str)-> str:
-        # For reading we will open the data_file in binary mode and scan the lines
         with open("./data/disk_dump.bat",'rb') as file:
             data = file.readlines()
             key_present = False
@@ -30,9 +29,6 @@ class MyDatabase(Idatabase):
                 print("Key does not exist")
     
     def write(self, key:str, value:str)->str:
-        # This hashmap will be updated at the time of the write.
-        # At every write we will have to open the file for appending
-        # perform a check whether the key is a delimiter for the csv file or not
         if len(key) > self.max_key_length:
             print("Max allowed length of key exceeded | Please enter a shorter string")
 

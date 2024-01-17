@@ -1,5 +1,5 @@
 # app.py
-# This will initialize the database engine and try to control reads and writes
+# This will initialize the database engine and get inputs for reads and writes
 # The database read and write for now is in a single class which might violate the single responsibility principle. Not sure, we'll see.
 
 from database import MyDatabase
@@ -23,7 +23,6 @@ def get_key_for_read()->str:
 
 
 def main():
-    # Create the database object and start the loop
     print("Initializing the database....")
     db = MyDatabase()
     db_shutdown = False
