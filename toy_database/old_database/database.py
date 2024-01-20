@@ -1,6 +1,6 @@
 # database.py
 
-from interfaces.idatabase import Idatabase
+from toy_database.interfaces.idatabase import Idatabase
 
 class MyDatabase(Idatabase):
     """ This is the MyDatabase class which will implement a simple append only file database"""

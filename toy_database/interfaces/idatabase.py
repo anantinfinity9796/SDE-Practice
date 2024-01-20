@@ -12,3 +12,6 @@ class Idatabase():
     
     def write(self, key, value):
         pass
+
+    def collection_metadata_update(self):
+        pass

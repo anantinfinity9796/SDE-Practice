@@ -2,7 +2,7 @@
 # This will initialize the database engine and get inputs for reads and writes
 # The database read and write for now is in a single class which might violate the single responsibility principle. Not sure, we'll see.
 
-from database import MyDatabase
+from toy_database.old_database.database import MyDatabase
 
 def get_write_key_value_data_from_user()->tuple:
     key=None
