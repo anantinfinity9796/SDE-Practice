@@ -1,14 +1,13 @@
 # query_parse.py
 
 from toy_database.interfaces.iquery_parser import IQueryParser
-from typing import Tuple
 
 
 class QueryParser(IQueryParser):
     def __init__(self):
         super().__init__()
         self._key_name = None
-        self._key_dtype = None
+        self._dtype = None
         self._key_value = None
         return
     
@@ -17,9 +16,8 @@ class QueryParser(IQueryParser):
         return self._key_name
     
     @property
-    def key_dtype(self):
-
-        return self._key_dtype
+    def dtype(self):
+        return self._dtype
     
     @property
     def key_value(self):
